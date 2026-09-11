@@ -16,12 +16,7 @@ module.exports = (env, argv) => {
       path: path.resolve(__dirname, 'dist'),
       filename: 'js/[name].[contenthash:8].js',
       clean: true,
-      /*
-        ⚠️ НАСТРОЙКА ДЛЯ NETLIFY:
-        Здесь строго должна быть косая черта '/'.
-        Мы убрали 'auto', так как pug-plugin его не поддерживает и ломает пути к стилям.
-        (Если бы мы собирали под GitHub Pages, тут была бы пустая строка '', но под Netlify нужна '/')
-      */
+      
       publicPath: '',
     },
 
@@ -87,11 +82,10 @@ module.exports = (env, argv) => {
       hot: true,
       open: true,
       port: 3000,
-      allowedHosts: 'all', // Убирает ошибку Content Security Policy (CSP) от Chrome DevTools
+      allowedHosts: 'all',
     },
-		// ВОТ ЭТОТ БЛОК УБЕРЕТ ЖЁЛТЫЕ ВАРНИНГИ:
+
     performance: {
-      // Показываем предупреждения только при npm run build, в режиме разработки отключаем
       hints: isProd ? 'warning' : false,
       maxAssetSize: 600000, // Поднимаем планку для одного файла до 600 КБ
       maxEntrypointSize: 800000, // Поднимаем планку для всей страницы до 800 КБ
