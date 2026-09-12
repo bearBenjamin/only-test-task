@@ -1,0 +1,77 @@
+@use '../commons/var.scss' as *;
+
+.consultation {
+	display: flex;
+}
+
+.consultation__content-wrapper {
+	margin-right: auto;
+	padding-top: 120px;
+	padding-bottom: 40px;
+	width: 100%;
+	max-width: 500px;
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	color: $text-inverse;
+}
+
+.consultation__title {
+	margin: 0;
+	margin-bottom: 40px;
+	color: $text-inverse;
+}
+
+.consultation__text {
+	margin: 0;
+	padding-right: 50px;
+	font-family: $basic-family;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 124%;
+	color: $text-inverse-muted;
+}
+
+.consultation__button {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	border: none;
+	margin-top: auto;
+	padding-left: 65px;
+	width: 242px;
+	height: 45px;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+
+	font-family: $secondary-family;
+	font-weight: 700;
+	font-size: 22px;
+	line-height: 100%;
+	text-transform: uppercase;
+	background-color: inherit;
+	color: $text-inverse;
+}
+
+.consultation__button::before {
+	content: "";
+	position: absolute;
+	left: 0; // наверное все же двину на середину и верну обратно на -50%
+	top: 50%;
+	transform: translateY(-50%);
+
+	width: 50px;
+	height: 45px;
+	border-radius: 4px;
+	background-color: $bg-secondary;
+
+	background-image: url('../../assets/images/footer/logo.svg');
+	background-size: 27px 20px;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.consultation__picture {
+	display: block;
+}

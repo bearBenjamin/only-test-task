@@ -1,0 +1,12 @@
+@use '../commons/var.scss' as *;
+
+.footer-page {
+	background-color: $bg-primary;
+}
+
+.footer-page__consultation {
+	margin: 0 auto;
+	padding: 0  0 0 187px;
+	width: 100%;
+	max-width: 1920px;
+}
