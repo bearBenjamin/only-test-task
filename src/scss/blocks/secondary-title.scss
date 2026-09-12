@@ -1,0 +1,16 @@
+@use '../commons/var.scss' as *;
+
+.secondary-title {
+	font-family: $secondary-family;
+	font-weight: 500;
+	font-size: 45px;
+	line-height: 130%;
+	letter-spacing: -0.02em;
+	text-transform: uppercase;
+	color: $text-main;
+}
+
+.secondary-title--accent {
+	margin-right: 20px;
+	font-style: italic;
+}

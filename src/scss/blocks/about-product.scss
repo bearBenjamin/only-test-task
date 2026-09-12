@@ -1,0 +1,30 @@
+@use '../commons/var.scss' as *;
+
+.about-product {
+	display: flex;
+	align-items: flex-start;
+}
+
+.about-product__title {
+	margin: 0;
+	margin-right: auto;
+	width: 100%;
+	max-width: 515px;
+}
+
+.about-product__text {
+	margin: 0;
+	margin-bottom: 25px;
+	width: 100%;
+	max-width: 763px;
+
+	font-family: $basic-family;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 124%;
+	color: $text-main-muted;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}

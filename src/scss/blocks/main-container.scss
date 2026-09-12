@@ -1,0 +1,13 @@
+@use '../commons/var.scss' as *;
+
+.main-container {
+	background-color: $bg-secondary;
+	color: $text-main;
+}
+
+.main-container__about-product {
+	margin: 0 auto;
+	padding: 140px 187px;
+	width: 100%;
+	max-width: 1920px;
+}
