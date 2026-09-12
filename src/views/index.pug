@@ -7,6 +7,7 @@ html.page(lang="ru")
 		link(href='../scss/main.scss' rel='stylesheet')
 	body.page__body
 		header.main-header
+			.main-header__bg
 			.main-header__container
 				nav.main-header__nav.main-nav
 					a.main-nav__logo(href='#')
@@ -36,8 +37,10 @@ html.page(lang="ru")
 					span.button__line
 			article.main-header__hero.hero
 				h1.hero__title.title
-					| Превращаем окружение#[br]
-					| #[span.title--accent в живые сады]
+					span.hero__title-line
+						span.hero__title-text Превращаем окружение
+					span.hero__title-line
+						span.hero__title-text #[span.title--accent в живые сады]
 				p.hero__text Вертикальное озеленение для бизнеса. Преображаем бизнес центры, ТЦ, отели, рестораны и другие коммерческие помещения.
 		main.page__main.main-container
 			section.main-container__about-product.about-product
