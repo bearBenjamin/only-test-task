@@ -1,0 +1,18 @@
+/* fonts */
+$basic-family: "Arial Nova", sans-serif;
+$secondary-family: "Cormorant Garamond", sans-serif;
+
+/* colors */
+$ch-dark-olive: #1c2500;
+$ch-sand-light: #edece2;
+$ch-white:      #ffffff;
+
+$bg-primary:   $ch-dark-olive;
+$bg-secondary: $ch-sand-light;
+
+$text-main:          $ch-dark-olive;
+$text-main-muted:    rgba($ch-dark-olive, 0.8);
+
+$text-inverse:          $ch-white;
+$text-inverse-muted:    rgba($ch-white, 0.8);
+$text-inverse-disabled: rgba($ch-white, 0.7);
