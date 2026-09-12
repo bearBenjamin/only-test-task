@@ -3,6 +3,20 @@
 .hero__title {
 	margin: 0;
 	margin-bottom: 30px;
+	display: flex;
+	flex-direction: column;
+}
+
+/* контейнер-маска */
+.hero__title-line {
+	display: block;
+	overflow: hidden; /* скрываю заголовок */
+	line-height: 130%;
+}
+
+.hero__title-text {
+	display: block;
+	transform: translateY(100%); /* скрытый заголовок сдвинут вниз */
 }
 
 .hero__text {
@@ -15,4 +29,9 @@
 	line-height: 124%;
 	color: $text-inverse-muted;
 	margin-bottom: 100px;
+
+	/* для анимации появления */
+	opacity: 0;
+	transform: translateY(100%);
+	will-change: transform, opacity;
 }
