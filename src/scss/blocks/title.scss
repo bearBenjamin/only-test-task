@@ -1,0 +1,18 @@
+@use '../commons/var.scss' as *;
+
+.title {
+	font-family: $secondary-family;
+	font-weight: 500;
+	font-size: 75px;
+	text-transform: uppercase;
+	color: $text-inverse;
+	line-height: 130%;
+	letter-spacing: -0.02em;
+}
+
+.title--accent {
+	font-weight: 500;
+	font-style: italic;
+	font-size: 75px;
+	letter-spacing: -0.03em;
+}

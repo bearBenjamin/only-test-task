@@ -1,0 +1,66 @@
+@use '../commons/var.scss' as *;
+
+.main-header {
+	margin: 0 auto;
+	// width: 100%;
+	// max-width: 1920px;
+
+	min-height: 100dvh; // не понятно на сколько надо тянуть шапку чтобы она была на весь экран в пикселях по фрейму макета
+	display: flex;
+	flex-direction: column;
+
+	font-family: $basic-family;
+	font-weight: 400;
+	font-size: 16px;
+	color: $text-inverse;
+	background-color: $bg-primary;
+	background-image: image-set(
+		url('../../assets/images/header/bc@1x.webp') 1dppx,
+		url('../../assets/images/header/bc@2x.webp') 2dppx,
+		url('../../assets/images/header/bc@1x.jpg') 1dppx,
+		url('../../assets/images/header/bc@2x.jpg') 2dppx);
+		// linear-gradient(180deg, rgba(44, 29, 4, 0.6) 0%, rgba(44, 29, 4, 0) 100%,rgba(0, 0, 0, 0.3)),
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.main-header__container {
+	width: 100%;
+	max-width: 1920px;
+	margin: 0 auto;
+	padding: 0 30px;
+	display: flex;
+	align-items: center;
+	column-gap: 306px;
+	flex-shrink: 0;
+}
+
+.main-header__nav {
+	display: flex;
+	flex-grow: 1;
+	align-items: center;
+	flex-wrap: wrap;
+	column-gap: 20px;
+
+}
+
+.main-header__button {
+	flex-shrink: 0;
+	min-width: 50px;
+	height: 45px;
+}
+
+.main-header__hero {
+	margin: 0 auto;
+	padding: 0 40px 0 187px;
+	width: 100%;
+	max-width: 1920px;
+
+	flex-grow: 1; /* Занимает всю оставшуюся высоту экрана */
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: end;
+	// padding: 0 40px 0 187px;
+}

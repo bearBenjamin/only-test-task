@@ -1,0 +1,18 @@
+@use '../commons/var.scss' as *;
+
+.hero__title {
+	margin: 0;
+	margin-bottom: 30px;
+}
+
+.hero__text {
+	margin: 0;
+	width: 100%;
+	max-width: 607px;
+	font-family: $basic-family;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 124%;
+	color: $text-inverse-muted;
+	margin-bottom: 100px;
+}

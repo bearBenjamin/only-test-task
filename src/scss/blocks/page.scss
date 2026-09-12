@@ -1,0 +1,11 @@
+@use '../commons/var.scss' as *;
+
+.page {
+  height: 100%;
+}
+
+.page__body {
+	margin: 0;
+	color: #ffffff;
+	background-color: $ch-dark-olive;
+}

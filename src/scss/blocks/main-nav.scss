@@ -1,0 +1,52 @@
+@use '../commons/var.scss' as *;
+// .main-nav {}
+
+.main-nav__logo {
+	padding: 47px 0;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	color: $text-inverse;
+}
+
+.main-nav__logo svg {
+	padding: 1px 0;
+	width: 20px;
+	height: 20px;
+}
+
+.main-nav__logo span {
+	font-family: $secondary-family;
+	font-weight: 700;
+	font-size: 22px;
+	line-height: 100%;
+	text-transform: uppercase;
+	color: $text-inverse;
+}
+
+.main-nav__list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	margin-left: auto;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	column-gap: 40px;
+}
+
+.main-nav__list-item {
+	font-family: $basic-family;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 100%;
+	text-transform: uppercase;
+	color: $text-inverse-disabled;
+}
+
+.main-nav__list-link {
+	padding: 50px 0 51px;
+	display: block;
+	color: $text-inverse-disabled;
+}
