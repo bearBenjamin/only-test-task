@@ -12,9 +12,20 @@
 	max-width: 515px;
 }
 
+/* маска заголовка */
+.about-product__title-line {
+	display: block;
+	overflow: hidden;
+	line-height: 120%;
+}
+
+.about-product__title-text {
+	display: block;
+	transform: translateY(100%);
+}
+
 .about-product__text {
 	margin: 0;
-	margin-bottom: 25px;
 	width: 100%;
 	max-width: 763px;
 
@@ -26,5 +37,13 @@
 
 	&:last-child {
 		margin-bottom: 0;
+	}
+
+	opacity: 0;
+	transform: translateY(50px);
+	will-change: transform, opacity;
+
+	&:not(:last-child) {
+		margin-bottom: 25px; // Чтобы абзацы не слипались
 	}
 }
