@@ -44,7 +44,11 @@ html.page(lang="ru")
 				p.hero__text Вертикальное озеленение для бизнеса. Преображаем бизнес центры, ТЦ, отели, рестораны и другие коммерческие помещения.
 		main.page__main.main-container
 			section.main-container__about-product.about-product
-				h2.about-product__title.secondary-title #[span.secondary-title--accent Достаточно]найти одну опорную стену
+				h2.about-product__title.secondary-title
+					span.about-product__title-line
+						span.about-product__title-text #[span.secondary-title--accent Достаточно]найти
+					span.about-product__title-line
+						span.about-product__title-text одну опорную стену
 				.about-product__text-wrapper
 					p.about-product__text Вертикальное озеленение – это&nbsp;инновационный способ интеграции природы в&nbsp;городскую среду.
 					p.about-product__text Эти&nbsp;живые конструкции, состоящие из&nbsp;растений, закреплённых на&nbsp;вертикальных поверхностях, не&nbsp;только преображают внешний вид&nbsp;зданий и&nbsp;интерьеров, но&nbsp;и&nbsp;приносят ощутимую пользу: улучшают качество воздуха, снижают температуру окружающей среды, создают звукоизоляцию и, конечно, дарят эстетическое удовольствие, превращая бетонные стены в&nbsp;цветущие оазисы.
@@ -52,9 +56,14 @@ html.page(lang="ru")
 			section.footer-page__consultation.consultation
 				.consultation__content-wrapper
 					.consultation__content-inner
-						h2.consultation__title.secondary-title #[span.secondary-title--accent Ежемесячная] поддержка от нас
+						h2.consultation__title.secondary-title
+							span.consultation__title-line
+								span.consultation__title-text #[span.secondary-title--accent Ежемесячная]
+							span.consultation__title-line
+								span.consultation__title-text поддержка от нас
 						p.consultation__text Ежемесячно проверяем состояние растений, бережно чистим от пыли и при необходимости заменяем растения.
-					button.consultation__button(type='button') Консультация
+					span.consultation__button-line
+						button.consultation__button(type='button') Консультация
 				picture.consultation__picture-wrap
 					source(
 						type='image/webp'

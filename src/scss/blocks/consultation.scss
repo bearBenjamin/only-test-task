@@ -22,6 +22,18 @@
 	color: $text-inverse;
 }
 
+/* маска */
+.consultation__title-line {
+	display: block;
+	overflow: hidden;
+	line-height: 120%;
+}
+
+.consultation__title-text {
+	display: block;
+	transform: translateY(100%);
+}
+
 .consultation__text {
 	margin: 0;
 	padding-right: 50px;
@@ -30,6 +42,17 @@
 	font-size: 20px;
 	line-height: 124%;
 	color: $text-inverse-muted;
+
+	opacity: 0;
+	transform: translateY(30px);
+	will-change: transform, opacity;
+}
+
+/* маска */
+.consultation__button-line {
+	display: block;
+	overflow: hidden;
+	margin-top: auto;
 }
 
 .consultation__button {
@@ -52,6 +75,9 @@
 	text-transform: uppercase;
 	background-color: inherit;
 	color: $text-inverse;
+
+	transform: translateY(100%);
+	will-change: transform;
 }
 
 .consultation__button::before {
@@ -72,6 +98,15 @@
 	background-position: center;
 }
 
+.consultation__picture-wrap {
+	overflow: hidden;
+	display: block;
+}
+
 .consultation__picture {
 	display: block;
+
+	opacity: 0;
+	transform: scale(1.15);
+	will-change: transform, opacity;
 }
