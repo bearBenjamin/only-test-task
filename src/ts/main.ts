@@ -94,7 +94,7 @@ const scrollTimeLine = gsap.timeline({
 	navContainer.classList.add('main-header__container--theme-dark');
 
 	const halfNavHeight = navHeight / 2;
-	
+
 	// Светлый блок (main)
 	ScrollTrigger.create({
 		trigger: '.page__main',

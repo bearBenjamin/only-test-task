@@ -2,11 +2,14 @@
 
 .button {
 	position: relative;
-	border: none;
-	border-radius: 4px;
 	margin: 0;
 	padding: 14px 11px 15px;
-	background-color: $bg-secondary;
+	border: none;
+	border-radius: 4px;
+	//background-color: $bg-secondary;
+
+	background-color: var(--theme-btn-bg, #{$bg-secondary});
+	transition: background-color 0.4s ease;
 }
 
 .button__line {
@@ -30,4 +33,9 @@
 
 .button__line:nth-child(5) {
 	top: 30px;
+}
+
+.button span {
+	background-color: var(--theme-btn-line-bg, #{$text-main});
+	transition: background-color 0.4s ease;
 }

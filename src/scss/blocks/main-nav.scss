@@ -50,3 +50,10 @@
 	display: block;
 	color: $text-inverse-disabled;
 }
+
+.main-nav__logo span,
+.main-nav__list-link,
+.main-nav svg {
+	color: var(--theme-text-color, #ffffff);
+	transition: color 0.4s ease;
+}
