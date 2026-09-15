@@ -1,12 +1,17 @@
 @use '../commons/var.scss' as *;
-// .main-nav {}
 
 .main-nav__logo {
 	padding: 47px 0;
 	display: flex;
 	align-items: center;
 	gap: 10px;
-	color: $text-inverse;
+}
+
+.main-nav__logo span,
+.main-nav__logo svg
+ {
+	color: var(--theme-logo-color, #ffffff);
+	transition: color 0.4s ease;
 }
 
 .main-nav__logo svg {
@@ -21,7 +26,6 @@
 	font-size: 22px;
 	line-height: 100%;
 	text-transform: uppercase;
-	color: $text-inverse;
 }
 
 .main-nav__list {
@@ -48,17 +52,6 @@
 .main-nav__list-link {
 	padding: 50px 0 51px;
 	display: block;
-	// color: $text-inverse-semi-transparent;
-}
-
-.main-nav__logo span,
-.main-nav__logo svg
- {
-	color: var(--theme-logo-color, #ffffff);
-	transition: color 0.4s ease;
-}
-
-.main-nav__list-link {
 	color: var(--theme-text-color, #ffffff);
 	transition: color 0.4s ease;
 }

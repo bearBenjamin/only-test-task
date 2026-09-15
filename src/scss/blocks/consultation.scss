@@ -2,6 +2,8 @@
 
 .consultation {
 	display: flex;
+	flex-wrap: wrap;
+	gap: 40px;
 }
 
 .consultation__content-wrapper {
@@ -39,7 +41,7 @@
 	padding-right: 50px;
 	font-family: $basic-family;
 	font-weight: 400;
-	font-size: 20px;
+	font-size: clamp(16px, 1.2vw, 20px);
 	line-height: 124%;
 	color: $text-inverse-muted;
 
@@ -83,7 +85,7 @@
 .consultation__button::before {
 	content: "";
 	position: absolute;
-	left: 0; // наверное все же двину на середину и верну обратно на -50%
+	left: 0;
 	top: 50%;
 	transform: translateY(-50%);
 
@@ -101,10 +103,18 @@
 .consultation__picture-wrap {
 	overflow: hidden;
 	display: block;
+
+	flex-grow: 1;
+	max-width: 960px;
+	width: 100%;
 }
 
 .consultation__picture {
 	display: block;
+
+	width: 100%;
+	height: auto;
+	object-fit: cover;
 
 	opacity: 0;
 	transform: scale(1.15);

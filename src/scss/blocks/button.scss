@@ -6,7 +6,6 @@
 	padding: 14px 11px 15px;
 	border: none;
 	border-radius: 4px;
-	//background-color: $bg-secondary;
 
 	background-color: var(--theme-btn-bg, #{$bg-secondary});
 	transition: background-color 0.4s ease;
@@ -17,9 +16,11 @@
 	left: 11px;
 	right: 11px;
 	display: block;
-	background-color: $bg-primary;
 	width: 28px;
 	height: 2px;
+
+	background-color: var(--theme-btn-line-bg, #{$text-main});
+	transition: background-color 0.4s ease;
 }
 
 .button__line:nth-child(2) {
@@ -33,9 +34,4 @@
 
 .button__line:nth-child(5) {
 	top: 30px;
-}
-
-.button span {
-	background-color: var(--theme-btn-line-bg, #{$text-main});
-	transition: background-color 0.4s ease;
 }

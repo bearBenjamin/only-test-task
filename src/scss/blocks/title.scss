@@ -3,7 +3,7 @@
 .title {
 	font-family: $secondary-family;
 	font-weight: 500;
-	font-size: 75px;
+	font-size: clamp(50px, 4vw, 75px);
 	text-transform: uppercase;
 	color: $text-inverse;
 	line-height: 130%;
@@ -11,8 +11,6 @@
 }
 
 .title--accent {
-	font-weight: 500;
 	font-style: italic;
-	font-size: 75px;
 	letter-spacing: -0.03em;
 }

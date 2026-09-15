@@ -28,7 +28,7 @@
 		url('../../assets/images/header/bc@2x.webp') 2dppx,
 		url('../../assets/images/header/bc@1x.jpg') 1dppx,
 		url('../../assets/images/header/bc@2x.jpg') 2dppx);
-	
+
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -48,13 +48,15 @@
 	}
 }
 
-.main-header__container,
-.main-header__hero {
-	position: relative;
-	z-index: 2;
-}
+// .main-header__container,
+// .main-header__hero {
+// 	position: relative;
+// 	z-index: 2;
+// }
 
 .main-header__container {
+	position: relative;
+	z-index: 2;
 	width: 100%;
 	max-width: 1920px;
 	margin: 0 auto;
@@ -111,6 +113,8 @@
 }
 
 .main-header__hero {
+	position: relative;
+	z-index: 2;
 	margin: 0 auto;
 	padding: 0 40px 0 187px;
 	width: 100%;

@@ -28,10 +28,10 @@
 	font-size: 18px;
 	line-height: 124%;
 	color: $text-inverse-muted;
-	margin-bottom: 100px;
+	margin-bottom: clamp(40px, 5vw, 100px);
 
 	/* для анимации появления */
 	opacity: 0;
-	transform: translateY(100%);
+	transform: translateY(40px);
 	will-change: transform, opacity;
 }

@@ -7,7 +7,8 @@
 
 .footer-page__consultation {
 	margin: 0 auto;
-	padding: 0  0 0 187px;
+	padding: 0;
+	padding-left: clamp(40px, 10vw, 187px);
 	width: 100%;
 	max-width: 1920px;
 }

@@ -3,6 +3,8 @@
 .about-product {
 	display: flex;
 	align-items: flex-start;
+	flex-wrap: wrap;
+	gap: 40px;
 }
 
 .about-product__title {
@@ -31,17 +33,17 @@
 
 	font-family: $basic-family;
 	font-weight: 400;
-	font-size: 20px;
+	font-size: clamp(16px, 1.2vw, 20px);
 	line-height: 124%;
 	color: $text-main-muted;
-
-	&:last-child {
-		margin-bottom: 0;
-	}
 
 	opacity: 0;
 	transform: translateY(50px);
 	will-change: transform, opacity;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
 
 	&:not(:last-child) {
 		margin-bottom: 25px; // Чтобы абзацы не слипались
