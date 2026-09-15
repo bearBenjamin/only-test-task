@@ -12,7 +12,8 @@ $bg-secondary: $ch-sand-light;
 
 $text-main:          $ch-dark-olive;
 $text-main-muted:    rgba($ch-dark-olive, 0.8);
+$text-main-semi-transparent: rgba($ch-dark-olive, 0.7);
 
 $text-inverse:          $ch-white;
 $text-inverse-muted:    rgba($ch-white, 0.8);
-$text-inverse-disabled: rgba($ch-white, 0.7);
+$text-inverse-semi-transparent: rgba($ch-white, 0.7);

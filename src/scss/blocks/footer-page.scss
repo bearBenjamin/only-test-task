@@ -1,8 +1,8 @@
 @use '../commons/var.scss' as *;
 
 .footer-page {
+	padding-bottom: 100dvh;
 	background-color: $bg-primary;
-	// min-height: 100dvh;
 }
 
 .footer-page__consultation {

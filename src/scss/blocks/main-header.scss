@@ -1,12 +1,12 @@
 @use '../commons/var.scss' as *;
 
 .main-header {
-	position: relative; // ***
+	position: relative;
 	margin: 0 auto;
 	min-height: 100dvh;
 	display: flex;
 	flex-direction: column;
-	overflow: hidden; // ***
+	overflow: hidden;
 
 	font-family: $basic-family;
 	font-weight: 400;
@@ -28,7 +28,7 @@
 		url('../../assets/images/header/bc@2x.webp') 2dppx,
 		url('../../assets/images/header/bc@1x.jpg') 1dppx,
 		url('../../assets/images/header/bc@2x.jpg') 2dppx);
-		// linear-gradient(180deg, rgba(44, 29, 4, 0.6) 0%, rgba(44, 29, 4, 0) 100%,rgba(0, 0, 0, 0.3)),
+	
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -63,10 +63,6 @@
 	align-items: center;
 	column-gap: 306px;
 	flex-shrink: 0;
-	// background-color: transparent;
-
-	// height: 80px; /* Задайте высоту вашего меню по макету */
-	// transition: color 0.3s ease; /* Чтобы цвета букв менялись плавно, а не резко */
 
 	opacity: 0;
 	will-change: opacity;
@@ -82,52 +78,23 @@
 	z-index: 100;
 }
 
-// Цветовые темы
-// .main-header__container--theme-dark {
-// 	color: $text-inverse;
-// 	.main-nav__logo span {
-// 		color: $text-inverse;
-// 	}
-// 	.main-nav__list-link {
-// 		color: $text-inverse;
-// 	}
-// 	svg {
-// 		color: $text-inverse;
-// 	}
-// }
-
-// .main-header__container--theme-light {
-// 	color: $text-main;
-// 	.main-nav__logo span {
-// 		color: $text-main;
-// 	}
-// 	.main-nav__list-link {
-// 		color: $text-main;
-// 	}
-// 	.main-header__button {
-// 		background-color: $bg-primary;
-// 	}
-// 	.main-header__button span {
-// 		background-color: $bg-secondary;
-// 	}
-// 	svg {
-// 		color: $text-main;
-// 	}
-// }
-
-//
 .main-header__container--theme-dark {
-	--theme-text-color: #{$text-inverse};
+	--theme-logo-color: #{$text-inverse};
+	--theme-text-color: #{$text-inverse-semi-transparent};
+	--theme-text-color-hover: #{$text-inverse};
+
 	--theme-btn-bg: #{$bg-secondary};
 	--theme-btn-line-bg: #{$text-main};
 }
 
 .main-header__container--theme-light {
-	--theme-text-color: #{$text-main};
+	--theme-logo-color: #{$text-main};
+	--theme-text-color: #{$text-main-semi-transparent};
+	--theme-text-color-hover: #{$text-main};
+
 	--theme-btn-bg: #{$bg-primary};
 	--theme-btn-line-bg: #{$text-inverse};
 }
-//
 
 .main-header__nav {
 	display: flex;
@@ -149,10 +116,9 @@
 	width: 100%;
 	max-width: 1920px;
 
-	flex-grow: 1; /* Занимает всю оставшуюся высоту экрана */
+	flex-grow: 1;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
 	justify-content: end;
-	// padding: 0 40px 0 187px;
 }
