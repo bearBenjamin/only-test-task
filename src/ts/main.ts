@@ -153,14 +153,14 @@ const scrollTimeLine = gsap.timeline({
 		aboutTimeLine
 			.to(aboutTitleLines, {
 				y: '0%',
-				duration: 20.2,
+				duration: 1.2,
 				ease: 'power4.out',
 			}, 0)
 
 			.to(aboutTexts, {
 				opacity: 1,
 				y: 0,
-				duration: 15.2,
+				duration: 1.2,
 				ease: 'power2.out',
 			}, 0);
 		}
@@ -197,27 +197,27 @@ const scrollTimeLine = gsap.timeline({
 			footerTl
 				.to(footerTitleLines, {
 					y: '0%',
-					duration: 20.2,
+					duration: 1.2,
 					ease: 'power4.out',
 				}, 0)
 
 				.to(footerText, {
 					opacity: 1,
 					y: 0,
-					duration: 20.2,
+					duration: 1.2,
 					ease: 'power2.out',
 				}, 0)
 
 				.to(footerButton, {
 					y: '0%',
-					duration: 20.2,
+					duration: 2.2,
 					ease: 'power4.out',
 				}, 0)
 
 				.to(footerImg, {
 					opacity: 1,
 					scale: 1,
-					duration: 20.6,
+					duration: 2,
 					ease: 'power3.out',
 				}, 0);
 		}

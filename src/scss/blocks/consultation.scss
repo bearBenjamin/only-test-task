@@ -80,6 +80,8 @@
 
 	transform: translateY(100%);
 	will-change: transform;
+
+	cursor: pointer;
 }
 
 .consultation__button::before {

@@ -10,13 +10,13 @@
 /* контейнер-маска */
 .hero__title-line {
 	display: block;
-	overflow: hidden; /* скрываю заголовок */
+	overflow: hidden;
 	line-height: 130%;
 }
 
 .hero__title-text {
 	display: block;
-	transform: translateY(100%); /* скрытый заголовок сдвинут вниз */
+	transform: translateY(100%);
 }
 
 .hero__text {
