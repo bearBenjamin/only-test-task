@@ -31,7 +31,7 @@
 	margin-bottom: clamp(40px, 5vw, 100px);
 
 	/* для анимации появления */
-	opacity: 1;
+	opacity: 0;
 	transform: translateY(40px);
 	will-change: transform, opacity;
 }
