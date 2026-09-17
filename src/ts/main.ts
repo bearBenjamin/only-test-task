@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () : void => {
 		gsap.set(headerBg, { opacity: 1, scale: 1 });
 		gsap.set(navContainer, { opacity: 1 });
 		gsap.set(titleTexts, { y: '0%' });
-		gsap.set(heroText, { y: 0 });
+		gsap.set(heroText, { y: 0 , opacity: 1});
 	}
 
 const scrollTimeLine = gsap.timeline({
