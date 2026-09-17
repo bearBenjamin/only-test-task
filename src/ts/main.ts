@@ -11,7 +11,20 @@ document.addEventListener("DOMContentLoaded", () : void => {
   const heroText = document.querySelector('.hero__text') as HTMLElement | null;
 	const heroSection = document.querySelector('.main-header__hero') as HTMLElement | null;
 
-  if (!header || !headerBg || !navContainer || titleTexts.length === 0 || !heroText || !heroSection) return;
+	const main = document.querySelector('.page__main') as HTMLElement | null;
+	const aboutProduct = document.querySelector('.about-product') as HTMLElement | null;
+	const aboutTitleLines = document.querySelectorAll('.about-product__title-text');
+	const aboutTexts = document.querySelectorAll('.about-product__text');
+
+	const footer = document.querySelector('.page__footer') as HTMLElement | null;
+	const footerTitleLines = document.querySelectorAll('.consultation__title-text');
+	const footerText = document.querySelector('.consultation__text') as HTMLElement | null;
+	const footerButton = document.querySelector('.consultation__button') as HTMLElement | null;
+	const footerImg = document.querySelector('.consultation__picture') as HTMLElement | null;
+
+  if (!header || !headerBg || !navContainer || titleTexts.length === 0 || !heroText || !heroSection
+		|| !main || !aboutProduct || aboutTitleLines.length === 0 || aboutTexts.length === 0
+		|| !footer || footerTitleLines.length === 0 || !footerText || !footerButton || !footerImg) return;
 
 	const initTimeLine = gsap.timeline();
 
@@ -42,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () : void => {
 		gsap.set(headerBg, { opacity: 1, scale: 1 });
 		gsap.set(navContainer, { opacity: 1 });
 		gsap.set(titleTexts, { y: '0%' });
-		gsap.set(heroText, { y: 0, opacity: 1 });
+		gsap.set(heroText, { y: 0 });
 	}
 
 const scrollTimeLine = gsap.timeline({
@@ -68,26 +81,26 @@ const scrollTimeLine = gsap.timeline({
 
 	const navHeight = navContainer.offsetHeight;
 
+	let isFixed = false;
+
 	ScrollTrigger.create({
 		trigger: header,
 		start: 'top top',
 		end: 'bottom top',
 		onUpdate: (self) => {
-			if (self.scroll() > 0) {
+			const scrollPos = self.scroll();
+
+			if (scrollPos > 0 && !isFixed) {
+				isFixed = true;
         navContainer.classList.add('main-header__container--fixed');
         gsap.set(header, { paddingTop: navHeight });
-      } else {
+      } else if (scrollPos === 0 && isFixed) {
+				isFixed = false;
         navContainer.classList.remove('main-header__container--fixed');
         gsap.set(header, { clearProps: "paddingTop" });
         gsap.set([titleTexts, heroText], { opacity: 1 }); // Подстраховка текста
       }
 		},
-		onEnterBack: () => {
-			navContainer.classList.remove('main-header__container--fixed');
-			header.style.paddingTop = '0px';
-			// Принудительно возвращаю текст в 1, если скролл-таймлайн забаговался в браузере
-			gsap.set([titleTexts, heroText], { opacity: 1 });
-		}
 	});
 
 	// анимация фиксированной шапки
@@ -97,7 +110,7 @@ const scrollTimeLine = gsap.timeline({
 
 	// Светлый блок (main)
 	ScrollTrigger.create({
-		trigger: '.page__main',
+		trigger: main,
 		// Срабатывает, когда верх секции доходит до середины фиксированной шапки
 		start: () => `top ${halfNavHeight}px`,
 		end: () => `bottom ${halfNavHeight}px`,
@@ -113,7 +126,7 @@ const scrollTimeLine = gsap.timeline({
 
 	// Темный блок (футер)
 	ScrollTrigger.create({
-		trigger: '.page__footer',
+		trigger: footer,
 		// Срабатывает, когда верх футера доходит до середины фиксированной шапки
 		start: () => `top ${halfNavHeight}px`,
 		onEnter: () => {
@@ -126,13 +139,11 @@ const scrollTimeLine = gsap.timeline({
 		}
 	});
 
-	const aboutTitleLines = document.querySelectorAll('.about-product__title-text');
-	const aboutTexts = document.querySelectorAll('.about-product__text');
-
+	//main
 	if (aboutTitleLines.length > 0 && aboutTexts.length > 0) {
 		const aboutTimeLine = gsap.timeline({
 			scrollTrigger: {
-				trigger: '.about-product',
+				trigger: aboutProduct,
 				start: 'top 75%',
 				toggleActions: 'play none none none', // играет один раз при прокрутке вниз
 				invalidateOnRefresh: true, // проверка позиции при первой загрузке
@@ -140,7 +151,7 @@ const scrollTimeLine = gsap.timeline({
 		});
 
 		const triggerInstance = ScrollTrigger.create({
-			trigger: '.about-product',
+			trigger: aboutProduct,
 			start: 'top 75%'
 		});
 
@@ -167,15 +178,10 @@ const scrollTimeLine = gsap.timeline({
 	}
 
 	//  футтер
-	const footerTitleLines = document.querySelectorAll('.consultation__title-text');
-	const footerText = document.querySelector('.consultation__text') as HTMLElement | null;
-	const footerButton = document.querySelector('.consultation__button') as HTMLElement | null;
-	const footerImg = document.querySelector('.consultation__picture') as HTMLElement | null;
-
 	if (footerTitleLines.length > 0 && footerText && footerButton && footerImg) {
 		const footerTl = gsap.timeline({
 			scrollTrigger: {
-				trigger: '.page__footer',
+				trigger: footer,
 				start: 'top 75%',
 				toggleActions: 'play none none none',
 				invalidateOnRefresh: true,
@@ -183,7 +189,7 @@ const scrollTimeLine = gsap.timeline({
 		});
 
 		const footerTriggerInstance = ScrollTrigger.create({
-			trigger: '.page__footer',
+			trigger: footer,
 			start: 'top 75%'
 		});
 
@@ -222,4 +228,7 @@ const scrollTimeLine = gsap.timeline({
 				}, 0);
 		}
 	}
+
+	ScrollTrigger.refresh();
+  ScrollTrigger.update();
 });
