@@ -38,6 +38,10 @@
 	align-items: center;
 	flex-wrap: wrap;
 	column-gap: 40px;
+
+	@media (max-width: $tablet) {
+		display: none;
+	}
 }
 
 .main-nav__list-item {
