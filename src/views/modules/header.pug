@@ -1,0 +1,30 @@
+header.main-header
+	.main-header__bg
+	.main-header__container
+		nav.main-header__nav.main-nav
+			a.main-nav__logo(href='#')
+				.
+					<svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" fill="none" viewBox="0 0 21 20">
+					<path fill="currentColor" d="M10.09 19.64C4.526 19.64 0 15.237 0 9.82 0 4.405 4.526 0 10.09 0s10.09 4.405 10.09 9.82c-.002 5.416-4.528 9.82-10.09 9.82m0-18.262c-4.782 0-8.675 3.788-8.675 8.442 0 4.655 3.893 8.443 8.675 8.443s8.675-3.788 8.675-8.443c-.003-4.654-3.893-8.442-8.675-8.442"/>
+					</svg>
+				span Forrest
+			ul.main-nav__list
+				li.main-nav__list-item
+					a.main-nav__list-link(href='#') Услуги
+				li.main-nav__list-item
+					a.main-nav__list-link(href='#') Поддержка
+				li.main-nav__list-item
+					a.main-nav__list-link(href='#') Компания
+				li.main-nav__list-item
+					a.main-nav__list-link(href='#') Партнеры
+				li.main-nav__list-item
+					a.main-nav__list-link(href='#') Портфолио
+				li.main-nav__list-item
+					a.main-nav__list-link(href='#') Контакты
+		button.main-header__button.button(type='button')
+			span.visually-hidden Открыть меню
+			span.button__line
+			span.button__line
+			span.button__line
+			span.button__line
+	include hero.pug
