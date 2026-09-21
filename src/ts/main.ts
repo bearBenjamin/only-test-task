@@ -26,58 +26,153 @@ document.addEventListener("DOMContentLoaded", () : void => {
 		|| !main || !aboutProduct || aboutTitleLines.length === 0 || aboutTexts.length === 0
 		|| !footer || footerTitleLines.length === 0 || !footerText || !footerButton || !footerImg) return;
 
-	const initTimeLine = gsap.timeline();
+	//создаю трекер медиа-условий
+  const mediaTracker = gsap.matchMedia();
 
-	/* анимация header при загрузке страницы */
-	if (window.scrollY === 0) {
-  initTimeLine.fromTo(headerBg,
-    { opacity: 0, scale: 1.15 },
-    { opacity: 1, scale: 1, duration: 2.2, ease: 'power3.out' },
-    0 // Стартуем в момент времени 0
-  )
+  mediaTracker.add("(prefers-reduced-motion: no-preference)", () => {
+		const initTimeLine = gsap.timeline();
 
-  .fromTo(navContainer,
-    { opacity: 0 },
-    { opacity: 1, duration: 1.5, ease: 'power2.out' },
-    0 // Стартуем строго одновременно с фоном
-  )
+		/* анимация header при загрузке страницы */
+		if (window.scrollY === 0) {
+  		initTimeLine.fromTo(headerBg,
+    		{ opacity: 0, scale: 1.15 },
+    		{ opacity: 1, scale: 1, duration: 2.2, ease: 'power3.out' },
+    		0 // Стартуем в момент времени 0
+  		)
 
-  .to(titleTexts,
-    { y: '0%', duration: 1.4, ease: 'power4.out' },
-    0 // Стартуем строго одновременно с остальными элементами
-  )
+  		.fromTo(navContainer,
+    		{ opacity: 0 },
+    		{ opacity: 1, duration: 1.5, ease: 'power2.out' },
+    		0 // Стартуем строго одновременно с фоном
+  		)
 
-  .to(heroText,
-    { opacity: 1, y: 0, duration: 1.4, ease: 'power4.out' },
-    0 // Стартуем строго одновременно со всеми
-  );
-	} else {
-		gsap.set(headerBg, { opacity: 1, scale: 1 });
-		gsap.set(navContainer, { opacity: 1 });
-		gsap.set(titleTexts, { y: '0%' });
-		gsap.set(heroText, { y: 0 , opacity: 1});
-	}
+  		.to(titleTexts,
+    		{ y: '0%', duration: 1.4, ease: 'power4.out' },
+    		0 // Стартуем строго одновременно с остальными элементами
+  		)
 
-const scrollTimeLine = gsap.timeline({
-	scrollTrigger: {
-			trigger: heroSection,
-			start: 'top top',
-			end: 'bottom top',
-			scrub: true,
-			invalidateOnRefresh: true, // Заставляет GSAP пересчитывать позиции при изменениях
+  		.to(heroText,
+    		{ opacity: 1, y: 0, duration: 1.4, ease: 'power4.out' },
+    		0 // Стартуем строго одновременно со всеми
+  		);
+		} else {
+			gsap.set(headerBg, { opacity: 1, scale: 1 });
+			gsap.set(navContainer, { opacity: 1 });
+			gsap.set(titleTexts, { y: '0%' });
+			gsap.set(heroText, { y: 0 , opacity: 1});
 		}
-	});
+
+		const scrollTimeLine = gsap.timeline({
+			scrollTrigger: {
+				trigger: heroSection,
+				start: 'top top',
+				end: 'bottom top',
+				scrub: true,
+				invalidateOnRefresh: true, // Заставляет GSAP пересчитывать позиции при изменениях
+			}
+		});
 
 /* анимация фона header при скролле */
-	scrollTimeLine.to(headerBg, {
-		'--bg-overlay-opacity': 1,
-	}, 0)
-	.to(titleTexts, {
-		opacity: 0,
-	}, 0)
-	.to(heroText, {
+		scrollTimeLine.to(headerBg, {
+			'--bg-overlay-opacity': 1,
+		}, 0)
+		.to(titleTexts, {
+			opacity: 0,
+		}, 0)
+		.to(heroText, {
       opacity: 0,
     }, 0);
+
+	//main
+		if (aboutTitleLines.length > 0 && aboutTexts.length > 0) {
+			const aboutTimeLine = gsap.timeline({
+				scrollTrigger: {
+					trigger: aboutProduct,
+					start: 'top 75%',
+					toggleActions: 'play none none none', // играет один раз при прокрутке вниз
+					invalidateOnRefresh: true, // проверка позиции при первой загрузке
+				}
+			});
+
+			const triggerInstance = ScrollTrigger.create({
+				trigger: aboutProduct,
+				start: 'top 75%'
+			});
+
+			if (triggerInstance.scroll() > triggerInstance.start) {
+				gsap.set(aboutTitleLines, { y: '0%' });
+				gsap.set(aboutTexts, { opacity: 1, y: 0 });
+				triggerInstance.kill(); // убиваю временный проверочный триггер
+			} else {
+				triggerInstance.kill();
+				aboutTimeLine
+					.to(aboutTitleLines, {
+						y: '0%',
+						duration: 1.2,
+						ease: 'power4.out',
+					}, 0)
+
+					.to(aboutTexts, {
+						opacity: 1,
+						y: 0,
+						duration: 1.2,
+						ease: 'power2.out',
+					}, 0);
+			}
+		}
+
+	//  футтер
+		if (footerTitleLines.length > 0 && footerText && footerButton && footerImg) {
+			const footerTl = gsap.timeline({
+				scrollTrigger: {
+					trigger: footer,
+					start: 'top 75%',
+					toggleActions: 'play none none none',
+					invalidateOnRefresh: true,
+				}
+			});
+
+			const footerTriggerInstance = ScrollTrigger.create({
+				trigger: footer,
+				start: 'top 75%'
+			});
+
+			if (footerTriggerInstance.scroll() > footerTriggerInstance.start) {
+				gsap.set([footerTitleLines, footerButton], { y: '0%' });
+				gsap.set([footerText, footerImg], { opacity: 1, y: 0, scale: 1 });
+				footerTriggerInstance.kill();
+			} else {
+				footerTriggerInstance.kill();
+
+				footerTl
+					.to(footerTitleLines, {
+						y: '0%',
+						duration: 1.2,
+						ease: 'power4.out',
+					}, 0)
+
+					.to(footerText, {
+						opacity: 1,
+						y: 0,
+						duration: 1.2,
+						ease: 'power2.out',
+					}, 0)
+
+					.to(footerButton, {
+						y: '0%',
+						duration: 2.2,
+						ease: 'power4.out',
+					}, 0)
+
+					.to(footerImg, {
+						opacity: 1,
+						scale: 1,
+						duration: 2,
+						ease: 'power3.out',
+					}, 0);
+			}
+		}
+	});
 
 	const navHeight = navContainer.offsetHeight;
 
@@ -138,96 +233,6 @@ const scrollTimeLine = gsap.timeline({
 			navContainer.classList.add('main-header__container--theme-light');
 		}
 	});
-
-	//main
-	if (aboutTitleLines.length > 0 && aboutTexts.length > 0) {
-		const aboutTimeLine = gsap.timeline({
-			scrollTrigger: {
-				trigger: aboutProduct,
-				start: 'top 75%',
-				toggleActions: 'play none none none', // играет один раз при прокрутке вниз
-				invalidateOnRefresh: true, // проверка позиции при первой загрузке
-			}
-		});
-
-		const triggerInstance = ScrollTrigger.create({
-			trigger: aboutProduct,
-			start: 'top 75%'
-		});
-
-		if (triggerInstance.scroll() > triggerInstance.start) {
-			gsap.set(aboutTitleLines, { y: '0%' });
-			gsap.set(aboutTexts, { opacity: 1, y: 0 });
-			triggerInstance.kill(); // убиваю временный проверочный триггер
-		} else {
-			triggerInstance.kill();
-		aboutTimeLine
-			.to(aboutTitleLines, {
-				y: '0%',
-				duration: 1.2,
-				ease: 'power4.out',
-			}, 0)
-
-			.to(aboutTexts, {
-				opacity: 1,
-				y: 0,
-				duration: 1.2,
-				ease: 'power2.out',
-			}, 0);
-		}
-	}
-
-	//  футтер
-	if (footerTitleLines.length > 0 && footerText && footerButton && footerImg) {
-		const footerTl = gsap.timeline({
-			scrollTrigger: {
-				trigger: footer,
-				start: 'top 75%',
-				toggleActions: 'play none none none',
-				invalidateOnRefresh: true,
-			}
-		});
-
-		const footerTriggerInstance = ScrollTrigger.create({
-			trigger: footer,
-			start: 'top 75%'
-		});
-
-		if (footerTriggerInstance.scroll() > footerTriggerInstance.start) {
-			gsap.set([footerTitleLines, footerButton], { y: '0%' });
-			gsap.set([footerText, footerImg], { opacity: 1, y: 0, scale: 1 });
-			footerTriggerInstance.kill();
-		} else {
-			footerTriggerInstance.kill();
-
-			footerTl
-				.to(footerTitleLines, {
-					y: '0%',
-					duration: 1.2,
-					ease: 'power4.out',
-				}, 0)
-
-				.to(footerText, {
-					opacity: 1,
-					y: 0,
-					duration: 1.2,
-					ease: 'power2.out',
-				}, 0)
-
-				.to(footerButton, {
-					y: '0%',
-					duration: 2.2,
-					ease: 'power4.out',
-				}, 0)
-
-				.to(footerImg, {
-					opacity: 1,
-					scale: 1,
-					duration: 2,
-					ease: 'power3.out',
-				}, 0);
-		}
-	}
 
 	ScrollTrigger.refresh();
   ScrollTrigger.update();

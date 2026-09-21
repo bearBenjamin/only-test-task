@@ -17,6 +17,10 @@
 .hero__title-text {
 	display: block;
 	transform: translateY(100%);
+
+	@media (prefers-reduced-motion: reduce) {
+		transform: none;
+	}
 }
 
 .hero__text {
@@ -34,4 +38,9 @@
 	opacity: 0;
 	transform: translateY(40px);
 	will-change: transform, opacity;
+
+	@media (prefers-reduced-motion: reduce) {
+		opacity: 1;
+		transform: none;
+	}
 }
