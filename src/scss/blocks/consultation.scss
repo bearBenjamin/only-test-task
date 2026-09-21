@@ -35,6 +35,10 @@
 .consultation__title-text {
 	display: block;
 	transform: translateY(100%);
+
+	@media (prefers-reduced-motion: reduce) {
+		transform: none;
+	}
 }
 
 .consultation__text {
@@ -49,6 +53,11 @@
 	opacity: 0;
 	transform: translateY(30px);
 	will-change: transform, opacity;
+
+	@media (prefers-reduced-motion: reduce) {
+		opacity: 1;
+		transform: none;
+	}
 }
 
 /* маска */
@@ -83,6 +92,10 @@
 	will-change: transform;
 
 	cursor: pointer;
+
+	@media (prefers-reduced-motion: reduce) {
+		transform: none;
+	}
 }
 
 .consultation__button::before {
@@ -122,4 +135,9 @@
 	opacity: 0;
 	transform: scale(1.15);
 	will-change: transform, opacity;
+
+	@media (prefers-reduced-motion: reduce) {
+		opacity: 1;
+		transform: none;
+	}
 }
