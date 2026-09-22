@@ -29,7 +29,7 @@
 .consultation__title-line {
 	display: block;
 	overflow: hidden;
-	line-height: 120%;
+	line-height: 130%;
 }
 
 .consultation__title-text {
@@ -73,9 +73,7 @@
 	padding: 0;
 	border: none;
 	margin-top: auto;
-	padding-left: 65px;
-	width: 242px;
-	height: 45px;
+	padding: 11px 0 12px 65px;
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;

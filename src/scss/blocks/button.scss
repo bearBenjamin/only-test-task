@@ -25,15 +25,15 @@
 	transition: background-color 0.4s ease;
 }
 
-.button__line:nth-child(2) {
+.button__line--top {
 	top: 16px;
 }
 
-.button__line:nth-child(3),
-.button__line:nth-child(4) {
+.button__line--middle-1,
+.button__line--middle-2 {
 	top: 23px;
 }
 
-.button__line:nth-child(5) {
+.button__line--bottom {
 	top: 30px;
 }
