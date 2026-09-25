@@ -48,6 +48,7 @@
 		background-color: $bg-primary;
 
 		opacity: var(--bg-overlay-opacity, 0);
+
 		will-change: opacity;
 
 		transition: opacity 0.7s ease;
@@ -63,7 +64,6 @@
 	padding: 0 30px;
 	display: flex;
 	align-items: center;
-	column-gap: 306px;
 	flex-shrink: 0;
 	flex-wrap: wrap;
 
@@ -123,7 +123,9 @@
 	position: relative;
 	z-index: 2;
 	margin: 0 auto;
-	padding: 0 40px 0 187px;
+	padding: 0;
+	padding-right: 40px;
+	padding-left: clamp(40px, 10vw, 187px);
 	width: 100%;
 	max-width: 1920px;
 

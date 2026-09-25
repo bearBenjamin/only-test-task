@@ -120,15 +120,15 @@
 	display: block;
 
 	flex-grow: 1;
-	max-width: 960px;
 	width: 100%;
+	max-width: 960px;
 }
 
 .consultation__picture {
 	display: block;
 
 	width: 100%;
-	height: auto;
+	height: 100%;
 	object-fit: cover;
 
 	opacity: 0;
