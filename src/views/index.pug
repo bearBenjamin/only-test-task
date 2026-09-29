@@ -1,5 +1,7 @@
 extends layout/layout.pug
 
+block init
+	- var pageClass = "index"
 block content
-	main.page__main.main-container
+	main.page__main.main-container(class=pageClass)
 		include modules/about-product/about-product.pug
