@@ -1,7 +1,7 @@
 @use '../commons/var.scss' as *;
 
 .footer-page {
-	padding-bottom: 100dvh;
+	min-height: 100dvh;
 	background-color: $bg-primary;
 }
 
