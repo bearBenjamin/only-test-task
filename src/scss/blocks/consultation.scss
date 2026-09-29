@@ -108,11 +108,27 @@
 	height: 45px;
 	border-radius: 4px;
 	background-color: $bg-secondary;
+	z-index: 1;
+}
 
-	background-image: url('../../assets/images/footer/logo.svg');
-	background-size: 27px 20px;
-	background-repeat: no-repeat;
-	background-position: center;
+.consultation__button::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 50%;
+	transform: translateY(-50%);
+
+	width: 50px;
+	height: 45px;
+	z-index: 2;
+
+	border-radius: 4px;
+	background-color: $bg-primary;
+
+	mask-image: url('../../assets/images/footer/logo.svg');
+	mask-size: 27px 20px;
+	mask-repeat: no-repeat;
+	mask-position: center;
 }
 
 .consultation__picture-wrap {
