@@ -19,5 +19,4 @@ document.addEventListener("DOMContentLoaded", () : void => {
 	});
 
 	ScrollTrigger.refresh();
-  ScrollTrigger.update();
 }, { once:true });
