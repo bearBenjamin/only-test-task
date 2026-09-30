@@ -2,6 +2,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export const initScrollHeader = (): void => {
+
   const header = document.querySelector<HTMLElement>('.main-header');
   const headerBg = header?.querySelector<HTMLElement>('.main-header__bg');
   const navContainer = header?.querySelector<HTMLElement>('.main-header__container');
@@ -12,23 +13,28 @@ export const initScrollHeader = (): void => {
   const main = document.querySelector<HTMLElement>('.page__main');
   const footer = document.querySelector<HTMLElement>('.page__footer');
 
-  if (!header || !headerBg || !navContainer || titleTexts.length === 0 || !heroText || !heroSection) return;
+  if (!header || !navContainer || !heroSection) return;
 
-  /* Анимация исчезновения и наложения фона */
-  const scrollTimeLine = gsap.timeline({
-    scrollTrigger: {
-      trigger: heroSection,
-      start: 'top top',
-      end: 'bottom top',
-      scrub: true,
-      invalidateOnRefresh: true,
-    }
-  });
+	 const mediaTracker = gsap.matchMedia();
 
-  scrollTimeLine
-    .to(headerBg, { '--bg-overlay-opacity': 1 }, 0)
-    .to(titleTexts, { opacity: 0 }, 0)
-    .to(heroText, { opacity: 0 }, 0);
+  mediaTracker.add("(prefers-reduced-motion: no-preference)", () => {
+		if (!headerBg || titleTexts.length === 0 || !heroText) return;
+  	/* Анимация исчезновения и наложения фона */
+  	const scrollTimeLine = gsap.timeline({
+    	scrollTrigger: {
+      	trigger: heroSection,
+      	start: 'top top',
+      	end: 'bottom top',
+      	scrub: true,
+      	invalidateOnRefresh: true,
+    	}
+  	});
+
+  	scrollTimeLine
+    	.to(headerBg, { '--bg-overlay-opacity': 1 }, 0)
+    	.to(titleTexts, { opacity: 0 }, 0)
+    	.to(heroText, { opacity: 0 }, 0);
+	});
 
   /* Фиксация шапки при скролле */
   const navHeight = navContainer.offsetHeight;

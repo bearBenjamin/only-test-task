@@ -8,15 +8,11 @@ import { initScrollFooter } from "./animations/scroll-footer";
 gsap.registerPlugin(ScrollTrigger);
 
 document.addEventListener("DOMContentLoaded", () : void => {
-	//создаю трекер медиа-условий
-  const mediaTracker = gsap.matchMedia();
 
-  mediaTracker.add("(prefers-reduced-motion: no-preference)", () => {
 		initHeaderLoader();
-    initScrollHeader();
+		initScrollHeader();
     initScrollMain();
     initScrollFooter();
-	});
 
 	ScrollTrigger.refresh();
 }, { once:true });
